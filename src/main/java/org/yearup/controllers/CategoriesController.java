@@ -12,7 +12,7 @@ import org.yearup.models.Product;
 import java.util.List;
 
 @RestController
-@RequestMapping("/controller")
+@RequestMapping("/categories")
 @CrossOrigin
 public class CategoriesController
 {
@@ -50,7 +50,6 @@ public class CategoriesController
     public Category addCategory(@RequestBody Category category)
     {
         return categoryDao.create(category);
-
     }
 
     @PutMapping("/{id}")
