@@ -68,6 +68,28 @@ public class ShoppingCartController
     // https://localhost:8080/cart/products/15 (15 is the productId to be updated)
     // the BODY should be a ShoppingCartItem - quantity is the only value that will be updated
 
+    @PutMapping("/products/{productId}")
+    public void updateProductInCart(@PathVariable int productId, @RequestParam int quantity, Principal principal) {
+        try
+        {
+            String userName = principal.getName();
+            User user = userDao.getByUserName(userName);
+            int userId = user.getId();
+
+            ShoppingCart cart = shoppingCartDao.getByUserId(userId);
+            if (!cart.contains(productId))
+            {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not in cart.");
+            }
+
+            ShoppingCartItem item = cart.get(productId);
+            item.setQuantity(quantity);
+        }
+        catch (Exception e)
+        {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error updating product in cart.");
+        }
+    }
 
     // add a DELETE method to clear all products from the current users cart
     // https://localhost:8080/cart
