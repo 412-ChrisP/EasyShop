@@ -40,10 +40,29 @@ public class ShoppingCartController
         }
     }
 
-    
     // add a POST method to add a product to the cart - the url should be
     // https://localhost:8080/cart/products/15 (15 is the productId to be added
-
+    @PostMapping("/products/{productId}")
+    public void addProductToCart(@PathVariable int productId, @RequestParam int quantity, Principal principal) {
+        try
+        {
+            String userName = principal.getName();
+            User user = userDao.getByUserName(userName);
+            int userId = user.getId();
+            Product product = productDao.getById(productId);
+            if (product == null)
+            {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found.");
+            }
+            ShoppingCart cart = shoppingCartDao.getByUserId(userId);
+            ShoppingCartItem item = new ShoppingCartItem(product, quantity);
+            cart.add(item);
+        }
+        catch (Exception e)
+        {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error adding product to cart.");
+        }
+    }
 
     // add a PUT method to update an existing product in the cart - the url should be
     // https://localhost:8080/cart/products/15 (15 is the productId to be updated)
