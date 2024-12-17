@@ -132,7 +132,24 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
     @Override
     public void delete(int categoryId)
     {
+        String sql = "DELETE FROM categories WHERE category_id = ?";
 
+        try (Connection connection = getConnection())
+        {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, categoryId);
+
+            int rowsAffected = statement.executeUpdate();
+
+            if (rowsAffected == 0)
+            {
+                throw new SQLException("Deleting category failed, no rows affected.");
+            }
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException("Error deleting category", e);
+        }
     }
 
     private Category mapRow(ResultSet row) throws SQLException
