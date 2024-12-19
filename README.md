@@ -2,16 +2,21 @@
 
 ## Description of the Project
 
-Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
+EasyShop is a Java based application meant as a storefront to streamline product inventory management and order processing.
+This application provides a user-friendly interface containing multiple filter methods and user account system with authentication.
+This product also allows managers to add, update, and delete items from the storefront efficiently.
 
-![Class Diagram](path/to/your/class_diagram.png)
+Database Diagram:
+![Screenshot 2024-12-17 at 10.43.52 AM.png](Screenshot%202024-12-17%20at%2010.43.52%20AM.png)
 
 ## User Stories
 
-List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
-
-- As a user, I want to be able to input my data, so that the application can process it accordingly.
-- As a user, I want to receive immediate feedback, so I can understand what to do next.
+- As a user, I want to be able to add items to my cart for checkout purposes.
+- As a user, I want a secure login system that tracks my cart and orders.
+- As a user, I want to search items within the inventory in an efficient manner
+- As a manager, I want to be able to add, delete, and update the inventory to my needs
+- as a manager, I want user authentication with admin permissions as necessary.
+- as a manager, I want to be able to track placed orders.
 
 ## Setup
 
@@ -34,37 +39,44 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Technologies Used
 
-- Java: Mention the version you are using.
-- Any additional libraries or frameworks used in the project.
+- Java: 
+- import org.springframework.boot.SpringApplication; 
+- import org.springframework.boot.autoconfigure.SpringBootApplication;
+- import org.springframework.stereotype.Component;
+- import javax.sql.DataSource; 
+- import java.sql.Connection; 
+- import java.sql.PreparedStatement; 
+- import java.sql.ResultSet; 
+- import java.sql.SQLException; 
+- import java.util.ArrayList; 
+- import java.util.List;
 
-## Demo
-
-Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
-
-![Application Screenshot](path/to/your/screenshot.png)
+# Demo
+## Postman Testing:
+![Screenshot 2024-12-17 095623.png](Screenshot%202024-12-17%20095623.png)
+![Screenshot 2024-12-17 095704.png](Screenshot%202024-12-17%20095704.png)
+## Filtering Examples:
+![Screenshot 2024-12-17 095757.png](Screenshot%202024-12-17%20095757.png)
+![Screenshot 2024-12-17 095822.png](Screenshot%202024-12-17%20095822.png)
 
 ## Future Work
 
-Outline potential future enhancements or functionalities you might consider adding:
-
-- Additional feature to be developed.
+- Improve GUI
+- Add more search functionalities
 - Improvement of current functionalities.
 
 ## Resources
 
-List resources such as tutorials, articles, or documentation that helped you during the project.
-
 - [Java Programming Tutorial](https://www.example.com)
 - [Effective Java](https://www.example.com)
+- Google 
 
 ## Team Members
 
-- **Name 1** - Specific contributions or roles.
-- **Name 2** - Specific contributions or roles.
+- **Chris Pham** - Project Developer
 
 ## Thanks
 
-Express gratitude towards those who provided help, guidance, or resources:
-
-- Thank you to [Mentor's Name] for continuous support and guidance.
+- Thank you to [Raymond Maroun] for continuous support and guidance.
+- Year Up Program: For providing resources and an environment to develop this project.
 - A special thanks to all teammates for their dedication and teamwork.
