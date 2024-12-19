@@ -118,7 +118,6 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     @Override
     public Product create(Product product)
     {
-
         String sql = "INSERT INTO products(name, price, category_id, description, color, image_url, stock, featured) " +
                 " VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
@@ -136,22 +135,21 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
 
             int rowsAffected = statement.executeUpdate();
 
-            if (rowsAffected > 0) {
-                // Retrieve the generated keys
+            if (rowsAffected > 0)
+            {
                 ResultSet generatedKeys = statement.getGeneratedKeys();
 
-                if (generatedKeys.next()) {
-                    // Retrieve the auto-incremented ID
+                if (generatedKeys.next())
+                {
                     int orderId = generatedKeys.getInt(1);
 
-                    // get the newly inserted category
                     return getById(orderId);
                 }
             }
         }
         catch (SQLException e)
         {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error creating product: " + e.getMessage(), e);
         }
         return null;
     }
