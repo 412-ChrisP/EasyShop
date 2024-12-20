@@ -29,6 +29,17 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
                 "AND (price <= ? OR ? = -1) " +
                 "AND (color = ? OR ? = '')";
 
+        /*
+        Bug Documentation:
+
+        The maxPrice was never actually used for filtering, as it wasn't passed as a parameter in the query properly.
+
+        Solution:
+        split the price range into two conditions: one for the minimum price (price >= ?) and one for the maximum price (price <= ?).
+        AND (price >= ? OR ? = -1)   -- Filters products with price greater than or equal to minPrice
+        AND (price <= ? OR ? = -1)   -- Filters products with price less than or equal to maxPrice
+        */
+
         categoryId = categoryId == null ? -1 : categoryId;
         minPrice = minPrice == null ? new BigDecimal("-1") : minPrice;
         maxPrice = maxPrice == null ? new BigDecimal("-1") : maxPrice;
@@ -41,7 +52,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
             statement.setInt(2, categoryId);
             statement.setBigDecimal(3, minPrice);
             statement.setBigDecimal(4, minPrice);
-            statement.setBigDecimal(5, maxPrice);
+            statement.setBigDecimal(5, maxPrice); //Add parameters for maxprice
             statement.setBigDecimal(6, maxPrice);
             statement.setString(7, color);
             statement.setString(8, color);
