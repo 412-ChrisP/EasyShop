@@ -39,17 +39,11 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Technologies Used
 
-- Java: 
-- import org.springframework.boot.SpringApplication; 
-- import org.springframework.boot.autoconfigure.SpringBootApplication;
-- import org.springframework.stereotype.Component;
-- import javax.sql.DataSource; 
-- import java.sql.Connection; 
-- import java.sql.PreparedStatement; 
-- import java.sql.ResultSet; 
-- import java.sql.SQLException; 
-- import java.util.ArrayList; 
-- import java.util.List;
+- Java: Java 17
+- MySql WorkBench
+- Postman
+- SpringBoot
+- HTML,CSS,JS
 
 # Demo
 ## Postman Testing:
@@ -64,6 +58,7 @@ Follow these steps to get your application running within IntelliJ IDEA:
 - Improve GUI
 - Add more search functionalities
 - Improvement of current functionalities.
+- Finish Cart
 
 ## Resources
 
@@ -78,5 +73,4 @@ Follow these steps to get your application running within IntelliJ IDEA:
 ## Thanks
 
 - Thank you to [Raymond Maroun] for continuous support and guidance.
-- Year Up Program: For providing resources and an environment to develop this project.
 - A special thanks to all teammates for their dedication and teamwork.
