@@ -85,6 +85,12 @@ public class ProductsController
     {
         try
         {
+            /*
+            Bug #2:
+                calls productDao.create(product) instead of an update method.
+                adds a new product to the database instead of updating an existing one.
+             */
+
             Product existingProduct = productDao.getById(id);
 
             if(existingProduct == null)

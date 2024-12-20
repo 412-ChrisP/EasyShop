@@ -4,7 +4,7 @@
 
 EasyShop is a Java based application meant as a storefront to streamline product inventory management and order processing.
 This application provides a user-friendly interface containing multiple filter methods and user account system with authentication.
-This product also allows managers to add, update, and delete items from the storefront efficiently.
+This application also allows managers to add, update, and delete items from the storefront efficiently.
 
 Database Diagram:
 ![Screenshot 2024-12-17 at 10.43.52 AM.png](Screenshot%202024-12-17%20at%2010.43.52%20AM.png)
