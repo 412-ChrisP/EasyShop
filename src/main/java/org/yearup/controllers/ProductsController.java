@@ -87,6 +87,8 @@ public class ProductsController
         {
             /*
             Bug #2:
+                "productDao.create(product);"
+
                 calls productDao.create(product) instead of an update method.
                 adds a new product to the database instead of updating an existing one.
              */
@@ -98,7 +100,7 @@ public class ProductsController
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
             }
 
-            productDao.update(id, product);
+            productDao.update(id, product); //Correct
         }
         catch(Exception ex)
         {
